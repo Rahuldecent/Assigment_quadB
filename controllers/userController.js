@@ -57,7 +57,7 @@ exports.createUser = async (req, res) => {
 // login user
 
 exports.loginUser = async (req, res) => {
-    // try {
+    try {
         let data = req.body
         let { email, password } = data
         if (!email || !password) {
@@ -85,9 +85,9 @@ exports.loginUser = async (req, res) => {
             message: "login successfully",
             token:token,
         });
-    // } catch (error) {
-    //     return res.status(500).send({ status: false, message: "Internal server error ", error: error })
-    // }
+    } catch (error) {
+        return res.status(500).send({ status: false, message: "Internal server error ", error: error })
+    }
 
 }
 // find user by user_id
